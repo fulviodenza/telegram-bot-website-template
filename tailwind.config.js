@@ -1,8 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: ["./src/**/*.{html,js}"],
-    theme: {
-      extend: {},
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      backgroundImage: theme => ({
+        'telegram-chat-wallpaper': "url('./src/assets/telegram-chat-wallpaper.jpg')"
+      })
     },
-    plugins: [],
-  }
+  },
+  plugins: [],
+}
