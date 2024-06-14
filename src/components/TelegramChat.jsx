@@ -18,7 +18,7 @@ const TelegramChat = () => {
 
     return (
         <div className="h-full flex items-center justify-center">
-            <div className="w-full max-w-md h-full flex flex-col bg-telegram-chat-wallpaper shadow-[rgba(0,0,0,0.2)_3px_3px_3px_3px] rounded-lg">
+            <div className="w-full max-w-md h-full flex flex-col bg-telegram-chat-wallpaper shadow-[rgba(0,0,0,0.2)_3px_3px_3px_3px] rounded-t-xl rounded-b-xl">
                 <div className="bg-gray-100 w-full h-14 flex flex-col justify-start p-2 rounded-t-xl">
                     <div className="flex items-center">
                         <img src={leftArrowIcon} alt="back" className="w-6 h-6 object-contain" />
@@ -40,7 +40,7 @@ const TelegramChat = () => {
                 <div className="p-4 bg-gray-100 flex rounded-b-xl">
                     <input
                         type="text"
-                        className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="flex-1 p-2 border border-gray-300 rounded-b-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Type a message..."
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
