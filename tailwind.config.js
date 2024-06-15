@@ -18,8 +18,6 @@ export default {
         'telegram-chat-wallpaper': "url('./src/assets/telegram-chat-wallpaper.jpg')",
         'telegram-icon-black': "url('./src/assets/icons/telegram-icon-black.svg')",
         'left-arrow-icon-black': "url('./src/assets/icons/left-arrow-icon-black.svg')",
-        'user-black': "url(./src/assets/icons/user-black.png)",
-        'notion-echo-logo': "url(./src/assets/icons/notion-echo-logo.png)"
       })
     },
   },

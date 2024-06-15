@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import leftArrowIcon from '../assets/icons/left-arrow-icon-black.svg';
 import telegramWallpaper from '../assets/telegram-chat-wallpaper.jpg';
+import notionEchoLogo from '../assets/icons/notion-echo-logo.png';
+import userIcon from '../assets/icons/user-black.png';
 
 const TelegramChat = () => {
     const [messages, setMessages] = useState([
@@ -39,13 +41,11 @@ const TelegramChat = () => {
                 <div className="flex-1 p-4 overflow-y-auto bg-cover bg-center" style={{ backgroundImage: `url(${telegramWallpaper})` }}>
                     {messages.map((message, index) => (
                         <div key={index} className={`mb-4 flex ${message.sender === 'self' ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`bg-gray-100 rounded-full flex mr-2 h-6 w-6 self-end bg-cover ${message.sender === 'self' ? 'hidden' : 'bg-notion-echo-logo'}`}>
-                            </div>
+                            <img src={notionEchoLogo} alt="notion-echo-logo" className={`rounded-full flex mr-2 h-6 w-6 self-end ${message.sender === 'self' ? 'hidden' : ''}`}/>
                             <div className={`p-2 rounded-3xl ${message.sender === 'self' ? 'bg-light-green-100' : 'bg-gray-100'}`}>
                                 <span className="mx-4">{formatMessage(message.text)}</span>
                             </div>
-                            <div className={`bg-gray-100 rounded-full flex ml-2 h-6 w-6 self-end bg-cover ${message.sender === 'self' ? 'bg-user-black' : 'hidden'}`}>
-                            </div>
+                            <div className='bg-gray-100 rounded-full ml-2 self-end'><img src={userIcon} alt="user-icon" className={`rounded-full flex h-6 w-6 self-end ${message.sender === 'self' ? '' : 'hidden'}`}/></div>
                         </div>
                     ))}
                 </div>
