@@ -13,15 +13,20 @@ const TelegramChat = () => {
 
     const handleSendMessage = () => {
         if (newMessage.trim()) {
-            setMessages([...messages, { text: newMessage, sender: 'self' }]);
-            setNewMessage('');
+            if (newMessage.startsWith('/note')) {
+                setMessages([...messages, {text: newMessage, sender: 'self'}, { text: "note saved", sender: 'other' }]);
+                setNewMessage('');
+            } else {
+                setMessages([...messages, { text: newMessage, sender: 'self' }]);
+                setNewMessage('');    
+            }
         }
     };
 
     const formatMessage = (text) => {
         return text.split(' ').map((word, index) => (
             word.startsWith('/') ? 
-                <span key={index} className="text-blue-500">{word} </span> : 
+                <span key={index} className="text-blue-100">{word} </span> : 
                 <span key={index}>{word} </span>
         ));
     }
