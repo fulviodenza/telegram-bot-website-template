@@ -1,8 +1,16 @@
-# React + Vite
+# Notion Echo Website Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A template for presenting a telegram bot in a cool way with an integrated chat that can be modified to interact with a mock of your bot.
 
-Currently, two official plugins are available:
+# Preview
+To have a preview of the website: <a href="notion-echo-website.vercel.app">This is the URL</a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div style="display: flex; flex-direction: column; align-items: center;">
+
+### Desktop Preview
+![screenshot](./src/assets/notion-echo-website-screenshot-desktop.png)
+
+### Mobile Preview
+<img style="width: 360px; height: 740px;" src="./src/assets/notion-echo-website-screenshot-mobile.png"/>
+
+</div>

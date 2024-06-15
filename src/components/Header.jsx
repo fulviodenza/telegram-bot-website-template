@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TelegramIcon from '../assets/icons/telegram-icon-black.svg';
+import TelegramIcon from '../assets/icons/telegram-icon-blue.svg';
 
 function Header() {
   return (
@@ -10,14 +10,14 @@ function Header() {
           Notion Echo Bot
         </a>
         <div className="flex flex-col center-items gap-y-4 sm:flex-row sm:gap-y-2 items-center md:gap-8 sm:gap-2 ml-auto">
-          <Link to="/" className="md:px-4 sm:px-2">Home</Link>
-          <Link to="/about" className="md:px-4 sm:px-2">About</Link>
+          <div className='flex px-4 py-2 text-sm shadow font-medium rounded-md mr-2'><Link to="/" className="md:px-4 sm:px-2">Home</Link></div>
+          <div className='flex px-4 py-2 text-sm shadow font-medium rounded-md mr-2'><Link to="/about" className="md:px-4 sm:px-2">About</Link></div>
           <a href="https://t.me/notion_echo_bot" target='_blank'>
             <button
               id="redirectToTelegram"
-              className="text-blue-900 flex px-4 py-2 text-sm shadow font-medium bg-blue-100 rounded-md mr-2"
+              className="text-blue-900 flex px-4 py-2 text-sm shadow font-medium rounded-md mr-2"
             >
-              <span className="hidden md:block">Go to the bot</span>
+              <span className="hidden md:block text-blue-100">Go to the bot</span>
               <span className="block md:hidden">
                 <img src={ TelegramIcon } alt='TelegramIcon'></img>
               </span>
