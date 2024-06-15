@@ -4,6 +4,25 @@ import telegramWallpaper from '../assets/telegram-chat-wallpaper.jpg';
 import notionEchoLogo from '../assets/icons/notion-echo-logo.png';
 import userIcon from '../assets/icons/user-black.png';
 
+const firstRegisterMessage = "click on the following URL, and authorize the page you want this bot to have access to\n";
+const secondRegisterMessage = "www.registrationurl.com/oauth2\n";
+const thirdRegisterMessage = "when you have done with registration, select a default page using command `/defaultpage page` with the name of the page you have authorized before\n";
+const helpMessage = `Hi there 👋 I'm your personal bridge to Notion, designed to make noting down your thoughts, tasks, and ideas as easy as sending a message to a friend. Let's get your productivity supercharged without ever leaving Telegram
+Here is how to get started:
+
+- /help - Displays this help message;
+- /register - Register your Notion notebook in the bot;
+- /note text - Write the text of the note or upload a pdf, jpg, jpeg or png (if it's an image, please ensure to send it without compression or it will upload a blurred image on notion) on Notion;
+- /defaultpage page_name - Sets the default Notion page for your notes. Ensure this is an authorized page during registration;
+- /getdefaultpage - Get default page for your user;
+- /deauthorize - I will forget you;
+	
+Need a bit more guidance? Type /help anytime to see what I can do for you or look at the Github repository: https://github.com/fulviodenza/notion-echo
+	
+Remember, your privacy is paramount. I don't keep any of your data. Everything goes straight into your Notion, and nowhere else.`;
+
+const commands = {'note': 'note saved', 'defaultpage': 'page default page set as default', 'getdefaultpage': 'defaultpage', 'register': firstRegisterMessage+secondRegisterMessage+thirdRegisterMessage, 'help': helpMessage};
+
 const TelegramChat = () => {
     const [messages, setMessages] = useState([
         { text: '/note hello notion-echo!', sender: 'self' },
@@ -13,13 +32,15 @@ const TelegramChat = () => {
 
     const handleSendMessage = () => {
         if (newMessage.trim()) {
-            if (newMessage.startsWith('/note')) {
-                setMessages([...messages, {text: newMessage, sender: 'self'}, { text: "note saved", sender: 'other' }]);
-                setNewMessage('');
-            } else {
-                setMessages([...messages, { text: newMessage, sender: 'self' }]);
-                setNewMessage('');    
+            for (const [key, value] of Object.entries(commands)) {
+                if ( newMessage.includes(key) ) {
+                    setMessages([...messages, {text: newMessage, sender: 'self'}, { text: value, sender: 'other' }]);
+                    setNewMessage('');    
+                    return;
+                }
             }
+            setMessages([...messages, { text: newMessage, sender: 'self' }]);
+            setNewMessage('');    
         }
     };
 
