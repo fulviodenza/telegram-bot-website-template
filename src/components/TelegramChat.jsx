@@ -29,7 +29,7 @@ const TelegramChat = () => {
     return (
         <div className="h-96 flex items-center justify-center">
             <div className="w-full max-w-md h-full flex flex-col shadow-[rgba(0,0,0,0.2)_3px_3px_3px_3px] rounded-t-xl rounded-b-xl">
-                <div className="bg-gray-100 w-full h-14 flex flex-col justify-start p-2 rounded-t-xl">
+                <div className="w-full h-14 flex flex-col justify-start p-2 rounded-t-xl">
                     <div className="flex items-center">
                         <img src={leftArrowIcon} alt="back" className="w-6 h-6 object-contain" />
                         <div className="ml-3">
@@ -45,21 +45,21 @@ const TelegramChat = () => {
                             <div className={`p-2 rounded-3xl ${message.sender === 'self' ? 'bg-light-green-100' : 'bg-gray-100'}`}>
                                 <span className="mx-4">{formatMessage(message.text)}</span>
                             </div>
-                            <div className='bg-gray-100 rounded-full ml-2 self-end'><img src={userIcon} alt="user-icon" className={`rounded-full flex h-6 w-6 self-end ${message.sender === 'self' ? '' : 'hidden'}`}/></div>
+                            <div className='bg-white-100 rounded-full ml-2 self-end'><img src={userIcon} alt="user-icon" className={`rounded-full flex h-6 w-6 self-end ${message.sender === 'self' ? '' : 'hidden'}`}/></div>
                         </div>
                     ))}
                 </div>
-                <div className="p-4 bg-gray-100 flex rounded-b-xl">
+                <div className="flex rounded-b-xl bg-white-100">
                     <input
                         type="text"
-                        className="flex-1 p-2 border border-gray-300 rounded-b-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Type a message..."
+                        className="flex-1 p-2 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Write a message..."
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
-                        onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                        onClick={(e) => e.key === 'Enter' && handleSendMessage()}
                     />
                     <button
-                        className="ml-4 p-2 bg-blue-500 text-white rounded-lg"
+                        className="ml-4 p-2 bg-white-100 text-white rounded-lg"
                         onClick={handleSendMessage}
                     >
                         Send

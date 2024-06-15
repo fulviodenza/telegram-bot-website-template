@@ -14,6 +14,9 @@ export default {
       },
       'blue': {
         100: '#3b82f6',
+      },
+      'white': {
+        100: 'rgb(255 255 255)',
       }
     },
     extend: {
