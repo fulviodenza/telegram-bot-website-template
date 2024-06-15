@@ -16,9 +16,17 @@ const TelegramChat = () => {
         }
     };
 
+    const formatMessage = (text) => {
+        return text.split(' ').map((word, index) => (
+            word.startsWith('/') ? 
+                <span key={index} className="text-blue-500">{word} </span> : 
+                <span key={index}>{word} </span>
+        ));
+    }
+
     return (
         <div className="h-96 flex items-center justify-center">
-            <div className="w-full max-w-md h-full flex flex-col bg-telegram-chat-wallpaper shadow-[rgba(0,0,0,0.2)_3px_3px_3px_3px] rounded-t-xl rounded-b-xl">
+            <div className="w-full max-w-md h-full flex flex-col shadow-[rgba(0,0,0,0.2)_3px_3px_3px_3px] rounded-t-xl rounded-b-xl">
                 <div className="bg-gray-100 w-full h-14 flex flex-col justify-start p-2 rounded-t-xl">
                     <div className="flex items-center">
                         <img src={leftArrowIcon} alt="back" className="w-6 h-6 object-contain" />
@@ -31,8 +39,12 @@ const TelegramChat = () => {
                 <div className="flex-1 p-4 overflow-y-auto bg-cover bg-center" style={{ backgroundImage: `url(${telegramWallpaper})` }}>
                     {messages.map((message, index) => (
                         <div key={index} className={`mb-4 flex ${message.sender === 'self' ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`p-2 rounded-lg ${message.sender === 'self' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-900'}`}>
-                                {message.text}
+                            <div className={`bg-gray-100 rounded-full flex mr-2 h-6 w-6 self-end bg-cover ${message.sender === 'self' ? 'hidden' : 'bg-notion-echo-logo'}`}>
+                            </div>
+                            <div className={`p-2 rounded-3xl ${message.sender === 'self' ? 'bg-light-green-100' : 'bg-gray-100'}`}>
+                                <span className="mx-4">{formatMessage(message.text)}</span>
+                            </div>
+                            <div className={`bg-gray-100 rounded-full flex ml-2 h-6 w-6 self-end bg-cover ${message.sender === 'self' ? 'bg-user-black' : 'hidden'}`}>
                             </div>
                         </div>
                     ))}
