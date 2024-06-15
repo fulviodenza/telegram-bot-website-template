@@ -1,9 +1,11 @@
 import React from 'react';
-import MainDiv from '../MainDiv';
+import Content from '../Content';
 
 const Home = () => {
   return (
-    <MainDiv />
+    <div className="w-full h-full flex-grow flex justify-center">
+      <Content />
+    </div>
   );
 };
 

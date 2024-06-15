@@ -17,7 +17,7 @@ const TelegramChat = () => {
     };
 
     return (
-        <div className="h-full flex items-center justify-center">
+        <div className="h-96 flex items-center justify-center">
             <div className="w-full max-w-md h-full flex flex-col bg-telegram-chat-wallpaper shadow-[rgba(0,0,0,0.2)_3px_3px_3px_3px] rounded-t-xl rounded-b-xl">
                 <div className="bg-gray-100 w-full h-14 flex flex-col justify-start p-2 rounded-t-xl">
                     <div className="flex items-center">
