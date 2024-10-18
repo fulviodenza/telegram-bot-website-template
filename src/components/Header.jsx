@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TelegramIcon from '../assets/icons/telegram-icon-blue.svg';
-
+import NotionEchoLogo from '../assets/notion-echo-logo.png'
 function Header() {
   return (
     <div className="flex w-full shadow px-8 py-8">
-      <div className="flex w-full">
+      <div className="flex w-full gap-x-2">
+        <img src={ NotionEchoLogo } alt='notion-echo logo' className="flex h-10 w-10"></img>
         <a href="#" className="text-3xl flex font-bold">
           Notion Echo Bot
         </a>
