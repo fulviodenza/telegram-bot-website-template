@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="flex w-full shadow px-8 py-8">
       <div className="flex w-full gap-x-2">
-        <img src={ NotionEchoLogo } alt='notion-echo logo' className="flex h-10 w-10"></img>
+        <img src={NotionEchoLogo} alt='notion-echo logo' className="flex h-12 w-10"></img>
         <a href="#" className="text-3xl flex font-bold">
           Notion Echo Bot
         </a>
@@ -20,7 +20,7 @@ function Header() {
             >
               <span className="hidden md:block text-blue-100">Go to the bot</span>
               <span className="block md:hidden">
-                <img src={ TelegramIcon } alt='TelegramIcon'></img>
+                <img src={TelegramIcon} alt='TelegramIcon'></img>
               </span>
             </button>
           </a>
