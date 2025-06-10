@@ -44,52 +44,98 @@ const TelegramChat = () => {
         }
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSendMessage();
+        }
+    };
+
     const formatMessage = (text) => {
         return text.split(' ').map((word, index) => (
             word.startsWith('/') ? 
-                <span key={index} className="text-blue-100">{word} </span> : 
+                <span key={index} className="text-blue-500 font-medium">{word} </span> : 
                 <span key={index}>{word} </span>
         ));
     }
 
     return (
-        <div className="h-96 flex items-center justify-center">
-            <div className="w-full max-w-md h-full flex flex-col shadow-[rgba(0,0,0,0.2)_3px_3px_3px_3px] rounded-t-xl rounded-b-xl">
-                <div className="w-full h-14 flex flex-col justify-start p-2 rounded-t-xl">
-                    <div className="flex items-center">
-                        <img src={leftArrowIcon} alt="back" className="w-6 h-6 object-contain" />
-                        <div className="ml-3">
-                            <p className='font-bold text-xs'>notion-echo</p>
-                            <p className='text-xs text-gray-500'>bot</p>
+        <div className="w-full max-w-md mx-auto">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+                {/* Chat Header */}
+                <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
+                    <div className="flex items-center text-white">
+                        <img src={leftArrowIcon} alt="back" className="w-5 h-5 mr-3 filter invert" />
+                        <img src={notionEchoLogo} alt="notion-echo" className="w-8 h-8 rounded-full mr-3 bg-white p-1" />
+                        <div>
+                            <p className='font-semibold text-sm'>notion-echo</p>
+                            <p className='text-xs text-blue-100'>bot</p>
                         </div>
                     </div>
                 </div>
-                <div className="flex-1 p-4 overflow-y-auto bg-cover bg-center" style={{ backgroundImage: `url(${telegramWallpaper})` }}>
-                    {messages.map((message, index) => (
-                        <div key={index} className={`mb-4 flex ${message.sender === 'self' ? 'justify-end' : 'justify-start'}`}>
-                            <img src={notionEchoLogo} alt="notion-echo-logo" className={`rounded-full flex mr-2 h-6 w-6 self-end ${message.sender === 'self' ? 'hidden' : ''}`}/>
-                            <div className={`p-2 rounded-3xl ${message.sender === 'self' ? 'bg-light-green-100' : 'bg-gray-100'}`}>
-                                <span className="mx-4">{formatMessage(message.text)}</span>
+
+                {/* Chat Messages */}
+                <div 
+                    className="h-80 p-4 overflow-y-auto bg-cover bg-center relative"
+                    style={{ backgroundImage: `url(${telegramWallpaper})` }}
+                >
+                    <div className="absolute inset-0 bg-white bg-opacity-90"></div>
+                    <div className="relative z-10 space-y-3">
+                        {messages.map((message, index) => (
+                            <div key={index} className={`flex ${message.sender === 'self' ? 'justify-end' : 'justify-start'}`}>
+                                {message.sender === 'other' && (
+                                    <img src={notionEchoLogo} alt="notion-echo-logo" className="w-6 h-6 rounded-full mr-2 self-end" />
+                                )}
+                                <div className={`max-w-xs px-4 py-2 rounded-2xl shadow-sm ${
+                                    message.sender === 'self' 
+                                        ? 'bg-light-green-100 text-gray-800 rounded-br-sm' 
+                                        : 'bg-white text-gray-800 rounded-bl-sm border'
+                                }`}>
+                                    <span className="text-sm">{formatMessage(message.text)}</span>
+                                </div>
+                                {message.sender === 'self' && (
+                                    <img src={userIcon} alt="user" className="w-6 h-6 rounded-full ml-2 self-end" />
+                                )}
                             </div>
-                            <div className='bg-white-100 rounded-full ml-2 self-end'><img src={userIcon} alt="user-icon" className={`rounded-full flex h-6 w-6 self-end ${message.sender === 'self' ? '' : 'hidden'}`}/></div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-                <div className="flex rounded-b-xl bg-white-100">
-                    <input
-                        type="text"
-                        className="flex-1 p-2 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Write a message..."
-                        value={newMessage}
-                        onChange={(e) => setNewMessage(e.target.value)}
-                        onClick={(e) => e.key === 'Enter' && handleSendMessage()}
-                    />
-                    <button
-                        className="ml-4 p-2 bg-white-100 text-white rounded-lg"
-                        onClick={handleSendMessage}
-                    >
-                        Send
-                    </button>
+
+                {/* Message Input */}
+                <div className="p-4 bg-gray-50 border-t">
+                    <div className="flex items-center space-x-3">
+                        <input
+                            type="text"
+                            className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                            placeholder="Write a message..."
+                            value={newMessage}
+                            onChange={(e) => setNewMessage(e.target.value)}
+                            onKeyPress={handleKeyPress}
+                        />
+                        <button
+                            className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            onClick={handleSendMessage}
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            {/* Try Commands Hint */}
+            <div className="mt-4 text-center">
+                <p className="text-sm text-gray-600 mb-2">Try these commands:</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                    {['/help', '/note', '/register'].map((cmd) => (
+                        <button
+                            key={cmd}
+                            onClick={() => setNewMessage(cmd)}
+                            className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs hover:bg-blue-200 transition-colors"
+                        >
+                            {cmd}
+                        </button>
+                    ))}
                 </div>
             </div>
         </div>
