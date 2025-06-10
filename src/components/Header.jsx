@@ -40,9 +40,9 @@ function Header() {
               href="https://t.me/notion_echo_bot" 
               target='_blank'
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-2"
+              className="text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-2"
             >
-              <span>Go to the bot</span>
+              <p>Go to the bot</p>
               <img src={TelegramIcon} alt='Telegram' className="w-4 h-4" />
             </a>
           </nav>

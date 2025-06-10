@@ -3,7 +3,7 @@ import RedditEmbed from '../RedditEmbed';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
+    <div className="min-h-screen bg-white-100 from-blue-50 to-indigo-100 py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -78,14 +78,14 @@ const About = () => {
         </div>
         
         <div className="text-center">
-          <div className="bg-blue-600 text-white rounded-xl p-8">
+          <div className="bg-white shadow-lg text-white rounded-xl p-8">
             <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-blue-100 mb-6">Join hundreds of users who are already boosting their productivity.</p>
+            <p className="text-gray-900 mb-6">Join hundreds of users who are already boosting their productivity.</p>
             <a 
               href="https://t.me/notion_echo_bot" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center space-x-2"
+              className="bg-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center space-x-2"
             >
               <span>Start Using the Bot</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

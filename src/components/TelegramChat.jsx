@@ -62,7 +62,7 @@ const TelegramChat = () => {
         <div className="w-full max-w-md mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
                 {/* Chat Header */}
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
+                <div className="from-blue-500 to-blue-600 p-4">
                     <div className="flex items-center text-white">
                         <img src={leftArrowIcon} alt="back" className="w-5 h-5 mr-3 filter invert" />
                         <img src={notionEchoLogo} alt="notion-echo" className="w-8 h-8 rounded-full mr-3 bg-white p-1" />
@@ -87,7 +87,7 @@ const TelegramChat = () => {
                                 )}
                                 <div className={`max-w-xs px-4 py-2 rounded-2xl shadow-sm ${
                                     message.sender === 'self' 
-                                        ? 'bg-light-green-100 text-gray-800 rounded-br-sm' 
+                                        ? 'bg-light-green-100 text-white rounded-br-sm' 
                                         : 'bg-white text-gray-800 rounded-bl-sm border'
                                 }`}>
                                     <span className="text-sm">{formatMessage(message.text)}</span>
