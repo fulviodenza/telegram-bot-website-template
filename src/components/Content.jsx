@@ -6,8 +6,6 @@ function MainContent() {
     <div className="min-h-screen  from-blue-50 to-indigo-100 py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-12">
-          <div className="inline-flex items-center bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full mb-4">
-          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Seamlessly Integrate 
             <span className="text-blue-600 block md:inline md:ml-3">Telegram Notes</span>
@@ -17,8 +15,6 @@ function MainContent() {
             Use your telegram client to write quick notes to your Second Brain. 
             Bridge the gap between instant messaging and organized productivity.
           </p>
-          <div className="mt-6">
-          </div>
         </header>
         
         <section className="flex justify-center mb-16" aria-label="Interactive demo">
